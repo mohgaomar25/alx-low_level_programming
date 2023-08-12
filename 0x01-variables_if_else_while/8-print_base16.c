@@ -1,9 +1,14 @@
 #include <stdio.h>
 
+/*
+ * main - Entry point of the program
+ *
+ * Description: This program prints all the numbers of base 16 in lowercase,
+ *              followed by a new line.
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-    // This program prints all the numbers of base 16 in lowercase, followed by a new line.
-    
     int i;
 
     for (i = 0; i < 10; i++)
