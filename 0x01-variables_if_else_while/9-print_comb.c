@@ -1,10 +1,8 @@
 #include <stdio.h>
-
 /**
  * main - Entry point of the program
- *
  * Description: This program prints all possible combinations of single-digit numbers,
- *              separated by commas and spaces, in ascending order.
+ * separated by commas and spaces, in ascending order.
  * Return: Always 0 (Success)
  */
 int main(void)
