@@ -2,6 +2,8 @@
 
 int main(void)
 {
+    // This program prints all the numbers of base 16 in lowercase, followed by a new line.
+    
     int i;
 
     for (i = 0; i < 10; i++)
