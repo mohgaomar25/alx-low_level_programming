@@ -2,7 +2,7 @@
 
 /**
  * main - C code to print _putchar
- * Return - should be 0
+ * Return: should be 0
  */
 int main(void)
 {
