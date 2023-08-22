@@ -9,32 +9,20 @@
 
 int _atoi(char *s)
 {
-	int sign = 1;
-	int result = 0;
-	int i = 0;
+	int sign = 1, i = 0;
+	unsigned int res = 0;
 
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' ||
-			s[i] == '\r' || s[i] == '\v' || s[i] == '\f')
+	while (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
 	{
+		if (s[i] == '-')
+			sign *= -1;
 		i++;
 	}
-
-	if (s[i] == '-')
+	while (s[i] <= '9' && (s[i] >= '0' && s[i] != '\0'))
 	{
-		sign = -1;
+		res = (res * 10) + (s[i] - '0');
 		i++;
 	}
-	else if (s[i] == '+')
-	{
-		i++;
-	}
-
-	while (s[i] >= '0' && s[i] <= '9')
-	
-	{
-		result = result * 10 + (s[i] - '0');
-		i++;
-	}
-
-	return result * sign;
+	res *= sign;
+	return (res);
 }
