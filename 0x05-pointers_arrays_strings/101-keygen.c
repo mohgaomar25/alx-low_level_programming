@@ -35,10 +35,10 @@ int main(void)
 		_putchar(password[j]);
 	}
 	_putchar('\n'); // Add a newline character at the end
-       	return (0);
+	return (0);
 }
 
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+	return putchar(c);
 }
