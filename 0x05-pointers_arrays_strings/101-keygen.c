@@ -1,14 +1,13 @@
 #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-int _putchar(char c);
-
 /**
- * main - print password.
- *
- * Return: 0.
+ * main - Entry point, generates a valid password for 101-crackme.
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	int ascii = 2772, i = 0, j, random;
@@ -29,16 +28,11 @@ int main(void)
 	{
 		i--;
 	}
+	
 
 	for (j = 0; j <= i; j++)
 	{
-		_putchar(password[j]);
+		printf("%c", password[j]);
 	}
-	_putchar('\n'); // Add a newline character at the end
 	return (0);
-}
-
-int _putchar(char c)
-{
-	return putchar(c);
 }
