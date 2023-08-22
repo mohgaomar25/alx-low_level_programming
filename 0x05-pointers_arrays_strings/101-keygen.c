@@ -3,12 +3,13 @@
 #include <time.h>
 #include "main.h"
 
+int _putchar(char c);
+
 /**
  * main - Entry point, generates a valid password for 101-crackme.
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	int i;
@@ -22,8 +23,14 @@ int main(void)
 		_putchar(r);             /* Print the generated character */
 		sum += r;                /* Update the sum */
 	}
-	
+
 	_putchar(0x5f - sum); /* Print the last character to make the sum 0x5f */
-	
+
 	return (0);
+}
+
+int _putchar(char c)
+{
+	return write(1, &c, 1);
+}
 }
