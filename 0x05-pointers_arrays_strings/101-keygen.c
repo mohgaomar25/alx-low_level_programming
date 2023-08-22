@@ -1,36 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "main.h"
 
 int _putchar(char c);
 
 /**
- * main - Entry point, generates a valid password for 101-crackme.
+ * main - print password.
  *
- * Return: Always 0 (Success)
+ * Return: 0.
  */
 int main(void)
 {
-	int i;
-	int sum = 0x5a;
+	int ascii = 2772, i = 0, j, random;
+	char password[100];
+	time_t t;
 
-	srand(time(NULL)); /* Seed the random number generator with current time */
-
-	for (i = 0; sum < 0x5f; i++)
+	srand((int) time(&t));
+	while (ascii > 126)
 	{
-		int r = rand() % 82 + 43; /* Generate a random ASCII character between 43 and 124 */
-		_putchar(r);             /* Print the generated character */
-		sum += r;                /* Update the sum */
+		random = rand() % 126;
+		password[i] = random;
+		ascii -= random;
+		i++;
+	}
+	if (ascii > 0)
+		password[i] = ascii;
+	else
+	{
+		i--;
 	}
 
-	_putchar(0x5f - sum); /* Print the last character to make the sum 0x5f */
-
-	return (0);
+	for (j = 0; j <= i; j++)
+	{
+		_putchar(password[j]);
+	}
+	_putchar('\n'); // Add a newline character at the end
+       	return (0);
 }
 
 int _putchar(char c)
 {
 	return write(1, &c, 1);
-}
 }
