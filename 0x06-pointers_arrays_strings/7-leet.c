@@ -8,21 +8,17 @@
 
 char *leet(char *str)
 {
-	char *leet_chars = "aAeEoOtTlL";
-	char *leet_replace = "4433007711";
-	int i, j;
+	int index1 = 0, index2;
+	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (str[++index1])
 	{
-		for (j = 0; leet_chars[j] != '\0'; j++)
+		for (index2 = 0; index2 <= 7; index2++)
 		{
-			if (str[i] == leet_chars[j])
-			{
-				str[i] = leet_replace[j];
-				break; // Found a matching character, no need to continue
-			}
+			if (str[index1] == leet[index2] ||
+			 str[index1] - 32 == leet[index2])
+				str[index1] = index2 + '0';
 		}
 	}
-
-	return str;
+	return (str);
 }
