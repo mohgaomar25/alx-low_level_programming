@@ -10,10 +10,10 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	while (*s)
+	while (*s != '\0')
 	{
 		char *a = accept;
-		while (*a)
+		while (*a != '\0')
 		{
 			if (*s == *a)
 			{
@@ -23,5 +23,5 @@ char *_strpbrk(char *s, char *accept)
 		}
 		s++;
 	}
-	return NULL;
+	return 0;  /* Return 0 when no matching byte is found.*/
 }
