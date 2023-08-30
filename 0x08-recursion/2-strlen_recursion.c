@@ -10,7 +10,7 @@ int _strlen_recursion(char *s)
 	/* Base case: end of string */
 	if (*s == '\0')
 	{
-		return 0;
+		return (0);
 	}
 
 	/* Recur with the rest of the string and add 1 for the current character */
