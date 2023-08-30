@@ -14,5 +14,5 @@ int _strlen_recursion(char *s)
 	}
 
 	/* Recur with the rest of the string and add 1 for the current character */
-	return 1 + _strlen_recursion(s + 1);
+	return (1 + _strlen_recursion(s + 1));
 }
