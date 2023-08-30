@@ -11,8 +11,10 @@ void _puts_recursion(char *s)
 		_putchar('\n'); /* Print a new line */
 	       	return;
 	}
-
-	_putchar(*s); /* Print the current character */
-	_puts_recursion(s + 1); /* Recur with the rest of the string */
+	else
+	{
+		_putchar(*s); /* Print the current character */
+		_puts_recursion(s + 1); /* Recur with the rest of the string */
+	}
 }
 
