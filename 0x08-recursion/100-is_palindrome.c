@@ -32,13 +32,15 @@ int is_palindrome_recursive(char *s, int start, int end)
  */
 int is_palindrome(char *s)
 {
+	/* Declare the variable at the beginning of the block */
+	int length = 0;
+
 	if (s == NULL)
 	{
 		return 0; /* Null pointer is not a palindrome */
 	}
 
 	/* Calculate the length of the string */
-	int length = 0;
 	while (s[length] != '\0')
 	{
 		length++;
@@ -47,3 +49,4 @@ int is_palindrome(char *s)
 	/* Call the recursive helper function */
 	return is_palindrome_recursive(s, 0, length - 1);
 }
+
