@@ -2,6 +2,21 @@
 #include <stddef.h>
 
 /**
+ * length_recursive - Helper function to calculate the length of a string recursively.
+ * @s: The string to calculate length for.
+ * @len: Current length.
+ * Return: Length of the string.
+ */
+int length_recursive(char *s, int len)
+{
+	if (*s == '\0')
+	{
+		return len;
+	}
+	return length_recursive(s + 1, len + 1);
+}
+
+/**
  * is_palindrome_recursive - Helper function to check if a string is palindrome recursively.
  * @s: The string to check.
  * @start: The starting index of the current comparison.
@@ -37,13 +52,8 @@ int is_palindrome(char *s)
 		return 0; /* Null pointer is not a palindrome */
 	}
 
-	/* Calculate the length of the string by moving the pointer */
-	char *end = s;
-	while (*end != '\0')
-	{
-		end++;
-	}
-	int length = end - s;
+	/* Calculate the length of the string using the helper function */
+	int length = length_recursive(s, 0);
 
 	/* Call the recursive helper function */
 	return is_palindrome_recursive(s, 0, length - 1);
