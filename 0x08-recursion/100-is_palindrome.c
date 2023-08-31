@@ -1,60 +1,47 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
- * length_recursive - Helper function to calculate the length of a string recursively.
- * @s: The string to calculate length for.
- * @len: Current length.
- * Return: Length of the string.
+ * _strlen_recursion - Returns the length of a string using recursion.
+ * @s: Pointer to the string to calculate the length of.
+ * Return: The length of the string.
  */
-int length_recursive(char *s, int len)
+int _strlen_recursion(char *s)
 {
-	if (*s == '\0')
+	if (!*s)
 	{
-		return len;
+		return (0);
 	}
-	return length_recursive(s + 1, len + 1);
+	return (1 + _strlen_recursion(++s));
 }
 
 /**
- * is_palindrome_recursive - Helper function to check if a string is palindrome recursively.
- * @s: The string to check.
- * @start: The starting index of the current comparison.
- * @end: The ending index of the current comparison.
- * Return: 1 if the substring is palindrome, 0 otherwise.
+ * p1 - Helper function to check if a string is a palindrome.
+ * @s: Pointer to the string to check.
+ * @l: Position of the character to compare.
+ * Return: 1 if palindrome, 0 otherwise.
  */
-int is_palindrome_recursive(char *s, int start, int end)
+int p1(char *s, int l)
 {
-	if (start >= end)
+	if (l < 1)
 	{
-		return 1; /* Base case: empty string or single character is a palindrome */
+		return (1);
 	}
 
-	/* Compare characters at start and end indices */
-	if (s[start] != s[end])
+	if (*s == *(s + l))
 	{
-		return 0; /* Not a palindrome */
+		return (p1(s + 1, l - 2));
 	}
-
-	/* Recur with updated indices */
-	return is_palindrome_recursive(s, start + 1, end - 1);
+	return (0);
 }
 
 /**
  * is_palindrome - Checks if a string is a palindrome.
- * @s: The string to check.
- * Return: 1 if the string is a palindrome, 0 otherwise.
+ * @s: Pointer to the string to check.
+ * Return: 1 if palindrome, 0 otherwise.
  */
 int is_palindrome(char *s)
 {
-	if (s == NULL)
-	{
-		return 0; /* Null pointer is not a palindrome */
-	}
+	int len = _strlen_recursion(s);
 
-	/* Calculate the length of the string using the helper function */
-	int length = length_recursive(s, 0);
-
-	/* Call the recursive helper function */
-	return is_palindrome_recursive(s, 0, length - 1);
+	return (p1(s, len - 1));
 }
