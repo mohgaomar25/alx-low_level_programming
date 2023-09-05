@@ -36,7 +36,8 @@ int count_words(char *str)
  * strtow - Splits a string into words.
  * @str: The input string
  *
- * Return: A pointer to an array of strings (words), or NULL if it fails
+ * Return: A pointer to an array of strings (words),
+ * or NULL if it fails
  */
 char **strtow(char *str)
 {
@@ -58,8 +59,8 @@ char **strtow(char *str)
 		while (*str == ' ' || *str == '\t' || *str == '\n')
 			str++;
 
-		for (len = 0; str[len] && str[len] != ' ' && str[len] != '\t' && str[len] != '\n'; len++)
-			;
+		for (len = 0; str[len] && str[len] != ' ' && str[len] 
+				!= '\t' && str[len] != '\n'; len++);
 
 		words[i] = malloc(sizeof(char) * (len + 1));
 
