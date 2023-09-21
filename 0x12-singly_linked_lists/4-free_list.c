@@ -15,5 +15,5 @@ void free_list(list_t *head)
 		head = head->next;
 		free(current->str); /* Free the string stored in the current node*/
 		free(current);      /* Free the current node itself*/
-    }
+	}
 }
