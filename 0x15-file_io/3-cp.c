@@ -18,7 +18,7 @@ int main(int ac, char *av[])
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: %s file_from file_to\n", av[0]);
+		dprintf(2,"Usage: %s file_from file_to\n", av[0]);
 		exit(97);
 	}
 
@@ -36,8 +36,7 @@ int main(int ac, char *av[])
 		exit(99);
 	}
 
-	do
-	{
+	do {
 		rd_bytes = read(fd_from, buffer, 1024);
 		if (rd_bytes == -1)
 		{
