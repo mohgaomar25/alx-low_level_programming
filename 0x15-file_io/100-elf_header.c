@@ -29,6 +29,7 @@ void read_elf_header(int fd)
 	uint8_t class, data, version, os_abi, abi_version;
 	uint16_t type;
 	uint64_t entry;
+	int i;
 
 	lseek(fd, 0, SEEK_SET);
 
@@ -47,7 +48,7 @@ void read_elf_header(int fd)
 
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	for (int i = 0; i < 16; i++)
+	for (i = 0; i < 16; i++)
 		printf("%02x ", magic[i]);
 	printf("\n");
 	printf("  Class:                             ELF");
